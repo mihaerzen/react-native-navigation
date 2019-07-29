@@ -1,3 +1,5 @@
+import * as Colors from "../commons/Colors";
+
 const React = require('react');
 const Root = require('../components/Root');
 const Button = require('../components/Button')
@@ -15,6 +17,9 @@ const {stack, component} = require('../commons/Layouts');
 class LayoutsScreen extends React.Component {
   static options() {
     return {
+      layout: {
+        backgroundColor: '#000000',
+      },
       topBar: {
         testID: WELCOME_SCREEN_HEADER,
         title: {
@@ -30,9 +35,17 @@ class LayoutsScreen extends React.Component {
         <Button label='Stack' testID={STACK_BTN} onPress={this.stack} />
         <Button label='BottomTabs' testID={BOTTOM_TABS_BTN} onPress={this.bottomTabs} />
         <Button label='SideMenu' testID={SIDE_MENU_BTN} onPress={this.sideMenu} />
+        <Button label='HideBottomTabsFromRoot' testID={'HideBottomTabsFromRoot'} onPress={this.hideTabsOnPush} />
       </Root>
     );
   }
+
+  hideTabsOnPush = () => Navigation.push(this, component(Screens.Pushed, {
+    bottomTabs: { visible: false },
+    layout: {
+      backgroundColor: Colors.background,
+    },
+  }));
 
   stack = () => Navigation.showModal(Screens.Stack);
 

@@ -1,4 +1,6 @@
 // @ts-check
+import * as Colors from "./commons/Colors";
+
 const { Navigation } = require('react-native-navigation');
 const { registerScreens } = require('./screens');
 const { Platform } = require('react-native');
@@ -35,6 +37,11 @@ function start() {
     Navigation.setRoot({
       root: {
         bottomTabs: {
+          options: {
+            bottomTabs: {
+              backgroundColor: Colors.background,
+            },
+          },
           children: [
             {
               stack: {
@@ -49,7 +56,8 @@ function start() {
                   bottomTab: {
                     text: 'Layouts',
                     icon: require('../img/layouts.png'),
-                    testID: testIDs.LAYOUTS_TAB
+                    testID: testIDs.LAYOUTS_TAB,
+                    iconColor: 'white',
                   }
                 }
               }
@@ -72,7 +80,8 @@ function start() {
                   bottomTab: {
                     text: 'Options',
                     icon: require('../img/options.png'),
-                    testID: testIDs.OPTIONS_TAB
+                    testID: testIDs.OPTIONS_TAB,
+                    iconColor: 'white',
                   }
                 }
               }

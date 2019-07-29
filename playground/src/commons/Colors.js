@@ -1,4 +1,4 @@
 module.exports = {
-  background: '#e8e8e8',
-  primary: '#5847ff'
+  background: '#000000',
+  primary: '#ffff00'
 }

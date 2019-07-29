@@ -4,9 +4,11 @@ const Colors = require('./Colors');
 const setDefaultOptions = () => Navigation.setDefaultOptions({
   layout: {
     componentBackgroundColor: Colors.background,
+    backgroundColor: Colors.background,
     orientation: ['portrait']
   },
   bottomTabs: {
+    animate: true,
     titleDisplayMode: 'alwaysShow'
   },
   bottomTab: {
